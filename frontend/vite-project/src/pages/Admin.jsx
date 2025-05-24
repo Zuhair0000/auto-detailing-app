@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AdminWorker.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Admin() {
   const [bookings, setBookings] = useState([]);
@@ -13,19 +14,16 @@ function Admin() {
 
   const fetchData = async () => {
     try {
-      const res1 = await fetch("http://localhost:3001/api/admin/bookings", {
+      const res1 = await fetch(`${API_URL}/api/admin/bookings`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
-      const res2 = await fetch(
-        "http://localhost:3001/api/admin/bookings/deleted",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res2 = await fetch(`${API_URL}/api/admin/bookings/deleted`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       // Check if both requests succeeded
       if (!res1.ok) throw new Error(`Bookings fetch error: ${res1.status}`);
@@ -45,14 +43,14 @@ function Admin() {
   };
 
   const handleDelete = async (id) => {
-    await fetch(`http://localhost:3001/api/admin/bookings/${id}`, {
+    await fetch(`${API_URL}/api/admin/bookings/${id}`, {
       method: "DELETE",
     });
     fetchData(); // Refresh data
   };
 
   const generateReport = async () => {
-    const response = await fetch("http://localhost:3001/api/admin/report");
+    const response = await fetch(`${API_URL}/api/admin/report`);
     const blob = await response.blob();
     const url = window.URL.createObjectURL(blob);
     const a = document.createElement("a");

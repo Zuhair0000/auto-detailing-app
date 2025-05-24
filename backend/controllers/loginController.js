@@ -6,6 +6,7 @@ exports.login = async (req, res) => {
   const { username, password } = req.body;
 
   try {
+    console.log("Login request body:", req.body);
     const [rows] = await db.query("SELECT * FROM users WHERE username = ?", [
       username,
     ]);
@@ -30,6 +31,7 @@ exports.login = async (req, res) => {
 
     res.json({ token, role: user.role });
   } catch (err) {
+    console.error("Login Error:", err);
     res.status(500).json({ error: "Server error" });
   }
 };

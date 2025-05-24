@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./AdminWorker.css";
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Worker() {
   const [bookings, setBookings] = useState([]);
@@ -8,7 +9,7 @@ function Worker() {
     const fetchData = async () => {
       try {
         const token = localStorage.getItem("token");
-        const res = await fetch("http://localhost:3001/api/work/bookings", {
+        const res = await fetch(`${API_URL}/api/work/bookings`, {
           headers: {
             Authorization: `Bearer ${token}`, // Add auth header if needed
           },
@@ -36,14 +37,11 @@ function Worker() {
 
   const handleStatusChange = async (id, newStatus) => {
     try {
-      const res = await fetch(
-        `http://localhost:3001/api/work/bookings/${id}/status`,
-        {
-          method: "PUT",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ status: newStatus }),
-        }
-      );
+      const res = await fetch(`${API_URL}/api/work/bookings/${id}/status`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ status: newStatus }),
+      });
 
       if (res.ok) {
         setBookings((prev) =>
