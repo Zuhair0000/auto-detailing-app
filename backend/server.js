@@ -19,8 +19,11 @@ app.use("/api/customer", customerRoutes);
 app.use("/api/admin", adminRoutes);
 app.use("/api/work", workerRoutes);
 app.use("/api/auth", loginRoutes);
+app.get("/api/test", (req, res) => {
+  res.json({ message: "API is working!" });
+});
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.DB_PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`Server is running on ${PORT}`);

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import image1 from "../assets/image-1.webp"; // adjust path if needed
+const API_URL = import.meta.env.VITE_API_URL;
 
 function Login({ onLogin }) {
   const [username, setUsername] = useState("");
@@ -8,7 +9,7 @@ function Login({ onLogin }) {
 
   const handleLogin = async () => {
     try {
-      const res = await fetch("http://localhost:3001/api/auth/login", {
+      const res = await fetch(`${API_URL}/api/auth/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ username, password }),
