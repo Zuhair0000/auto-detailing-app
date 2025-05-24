@@ -1,0 +1,122 @@
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 20px;
+}
+
+/* Login Container */
+.login-container {
+  position: relative;
+  z-index: 1;
+  max-width: 350px;
+  padding: 30px 25px;
+  background-color: #f8f9fa; /* From booking form */
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* From booking form */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+/* Background Ripple */
+.login-container::before,
+.login-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+  animation: ripple 6s infinite ease-in-out;
+}
+
+.login-container::before {
+  top: -60px;
+  left: -60px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #007bff 20%, transparent 80%);
+}
+
+.login-container::after {
+  bottom: -50px;
+  right: -50px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #0056b3 25%, transparent 75%);
+  animation-duration: 8s;
+}
+
+@keyframes ripple {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.15;
+  }
+}
+
+/* Heading */
+.login-container h2 {
+  color: #333; /* From booking title */
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
+}
+
+/* Input Fields */
+.login-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc; /* From booking form */
+  border-radius: 6px; /* From booking form */
+  font-size: 16px;
+  outline: none;
+  background-color: #fff;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.login-container input::placeholder {
+  color: #666;
+}
+
+/* Button */
+.login-container button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #007bff; /* From booking form */
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.login-container button:hover {
+  background-color: #0056b3; /* From booking form */
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.6);
+}
+
+/* Responsive */
+@media (max-width: 400px) {
+  .login-container {
+    margin: 40px 20px;
+  }
+}
