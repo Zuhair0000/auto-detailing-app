@@ -1,0 +1,47 @@
+.bookings-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.bookings-container h2 {
+  text-align: center;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+.bookings-container table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.bookings-container th,
+.bookings-container td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.bookings-container th {
+  background-color: #007bff;
+  color: #fff;
+  font-weight: 600;
+}
+
+.bookings-container tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.bookings-container tr:hover {
+  background-color: #e6f7ff;
+}
+
+.bookings-container p {
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}

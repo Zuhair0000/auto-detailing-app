@@ -36,3 +36,13 @@
 .nav-link.active {
   border-bottom: 2px solid #60a5fa;
 }
+
+.logout-button {
+  padding: 8px 12px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}

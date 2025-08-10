@@ -1,10 +1,12 @@
 const mysql = require("mysql2/promise");
 
+// db.js
+
 const db = mysql.createPool({
-  host: process.env.DB_HOST || "localhost",
-  user: process.env.DB_USER || "root",
-  password: process.env.DB_PASS || "Zoherama1122",
-  database: process.env.DB_NAME || "car_wash",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME,
 });
 
 console.log("MYSQL connected");

@@ -1,0 +1,125 @@
+/* RegisterWorkerForm.css */
+
+.register-worker-wrapper {
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.register-worker-container {
+  position: relative;
+  z-index: 1;
+  max-width: 350px;
+  width: 100%;
+  padding: 30px 25px;
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  overflow: hidden;
+}
+
+.register-worker-container::before,
+.register-worker-container::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.2;
+  pointer-events: none;
+  z-index: 0;
+  animation: ripple 6s infinite ease-in-out;
+}
+
+.register-worker-container::before {
+  top: -60px;
+  left: -60px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, #007bff 20%, transparent 80%);
+}
+
+.register-worker-container::after {
+  bottom: -50px;
+  right: -50px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, #0056b3 25%, transparent 75%);
+  animation-duration: 8s;
+}
+
+@keyframes ripple {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.2;
+  }
+  50% {
+    transform: scale(1.15);
+    opacity: 0.15;
+  }
+}
+
+.register-worker-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  z-index: 1;
+  position: relative;
+}
+
+.register-worker-container input {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  background-color: #fff;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 1;
+}
+
+.register-worker-container input::placeholder {
+  color: #666;
+}
+
+.register-worker-container button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  z-index: 1;
+  position: relative;
+  box-shadow: 0 4px 10px rgba(0, 123, 255, 0.4);
+}
+
+.register-worker-container button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 6px 12px rgba(0, 123, 255, 0.6);
+}
+
+.register-worker-message {
+  margin-top: 1rem;
+  color: #333;
+  position: relative;
+  z-index: 1;
+}
+
+@media (max-width: 400px) {
+  .register-worker-container {
+    margin: 40px 20px;
+  }
+}
